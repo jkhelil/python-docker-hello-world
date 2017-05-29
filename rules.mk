@@ -1,3 +1,6 @@
+%: %.tmpl
+	sed  "s/@VERSION@/$(VERSION)/; " < $< > $@
+
 .PHONY: build
 build: Dockerfile 
 	NO_CACHE=false; \
