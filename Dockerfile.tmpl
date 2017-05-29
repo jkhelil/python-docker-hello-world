@@ -1,0 +1,10 @@
+FROM centos/python-27-centos7
+# Update all the packages
+RUN yum -y upgrade && yum clean all
+
+RUN yum install -y python-pip
+
+COPY hello /hello
+USER 1000
+WORKDIR /hello
+ENTRYPOINT ["/hello/server.py"]
